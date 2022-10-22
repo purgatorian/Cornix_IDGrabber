@@ -1,0 +1,21 @@
+{
+    "name": "ID Grabber",
+    "description": "Grab ID from Intercom",
+    "version": "0.2.0",
+    "manifest_version": 3,
+    "icons": {
+        "16": "icon16.png",
+        "48": "icon48.png",
+        "128": "icon128.png"
+    },
+    "permissions": [
+        "tabs",
+        "notifications",
+        "storage"
+      ],
+    "content_scripts": [{
+        "run_at": "document_end",
+        "js": ["content.js"],
+        "matches": ["https://app.intercom.com/*"]
+    }]
+}
