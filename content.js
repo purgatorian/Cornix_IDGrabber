@@ -32,11 +32,18 @@ function pollDOM (jiraButton, userButton) {
     const userid = document.getElementsByClassName("conversation__card__title__em-link no-underline hover:underline");
     if (userid.length) {
         grabbedID = userid[0].innerText;
-        cleanUserID = grabbedID.split("(")
-        if (cleanUserID[1].includes(")")){
-            finalUserID = cleanUserID[1].replace(")",'')
+        cleanUserID = grabbedID
+        function containsSpecialChars(value) {
+            const specialchr = /[`)`]/;
+            return specialchr.test(value);
+        }
+        if (containsSpecialChars(cleanUserID)){
+            cleanUserID = grabbedID.split("(")
+            cleanUserID = cleanUserID[1]
+            finalUserID = cleanUserID.replace(")",'')
+            console.log(finalUserID)
         } else {
-            finalUserID = cleanUserID[1]
+            finalUserID = cleanUserID
         };
         jiraButton = document.getElementById("jiraButton")
         userButton = document.getElementById("UserButton")
