@@ -15,7 +15,7 @@
       ],
     "content_scripts": [{
         "run_at": "document_end",
-        "js": ["content.js"],
+        "js": ["jquery-3.6.1.min.js","content.js"],
         "matches": ["https://app.intercom.com/*"]
     }]
 }
