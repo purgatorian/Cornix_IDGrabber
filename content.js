@@ -22,10 +22,12 @@ $(window).on("load",function () {
                     return specialchr.test(value);
                 }
                 if (containsSpecialChars(userid)){
-                    let pattern = /\((\w+)\)/;
+                    let pattern = /\((.*?)\)/;
                     finalUserID = (userid.match(pattern))[1];
                 } else {
-                    finalUserID = userid
+                    var finalUserID = userid.replace(/\n|\r/g, "").trim();
+                    //finalUserID = userid
+                    console.log(typeof(finalUserID))
                 }
                 return finalUserID;
             }
