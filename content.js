@@ -1,5 +1,5 @@
 $(window).on("load",function () {
-    setTimeout(function(){
+    setInterval(function(){
         function createButtons() {
             userButton = document.createElement("button");
             userButton.innerHTML = "  Userid  ";
@@ -56,13 +56,9 @@ $(window).on("load",function () {
                 navigator.clipboard.writeText(finalUserID)
             })
         }
-
-        createButtons()
-        pollDOM()
-        setInterval(function(){
-            while($('#UserBtn').length == 0){
-                createButtons()
-                pollDOM()
-            }}, 5000)
-    }, 5000);     
+        while($('#UserBtn').length == 0){
+            createButtons()
+            pollDOM()
+        }
+    }, 10000)    
 });
